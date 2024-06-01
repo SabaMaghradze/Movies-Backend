@@ -1,0 +1,534 @@
+[
+  {
+    "title": "The Departed",
+    "releaseYear": 2006,
+    "director": [
+      "Martin Scorsese"
+    ],
+    "cast": [
+      {
+        "actor": "Leonardo Dicaprio",
+        "character": "Billy Costigan"
+      },
+      {
+        "actor": "Matt Damon",
+        "character": "Colin Sullivan"
+      },
+      {
+        "actor": "Jack Nicholson",
+        "character": "Frank Costello"
+      },
+      {
+        "actor": "Mark Wahlberg",
+        "character": "Sean Dignam"
+      }
+    ],
+    "genres": [
+      "Crime",
+      "Thriller",
+      "Drama"
+    ],
+    "rating": 9.2,
+    "totalRatings": 1023,
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BZDdiNDQ1MTUtYTNkZS00YWVjLTgxYWUtODhmMWYwNDQ0NzU5XkEyXkFqcGdeQXVyNDIyNjA2MTk@._V1_.jpg",
+    "createdAt": "2024-05-04T16:38:07.521Z"
+  },
+  {
+    "title": "The Girl With the Dragon Tattoo",
+    "releaseYear": 2011,
+    "director": [
+      "David Fincher"
+    ],
+    "cast": [
+      {
+        "actor": "Rooney Mara",
+        "character": "Lisbeth Salander"
+      },
+      {
+        "actor": "Daniel Craig",
+        "character": "Mikael Blomkvist"
+      },
+      {
+        "actor": "Christopher Plummer",
+        "character": "Henrik Vanger"
+      }
+    ],
+    "genres": [
+      "Crime",
+      "Drama",
+      "Mystery"
+    ],
+    "rating": 7.8,
+    "totalRatings": 742,
+    "coverImage": "https://m.media-amazon.com/images/I/51jvgIjHjKL.jpg",
+    "createdAt": "2024-05-04T16:38:07.521Z"
+  },
+  {
+    "title": "Cidade de Deus",
+    "releaseYear": 2002,
+    "director": [
+      "Fernando Meirelles",
+      "Kátia Lund"
+    ],
+    "cast": [
+      {
+        "actor": "Alexandre Rodrigues",
+        "character": "Buscapé"
+      },
+      {
+        "actor": "Leandro Firmino",
+        "character": "Zé Pequeno"
+      },
+      {
+        "actor": "Phellipe Haagensen",
+        "character": "Benny"
+      }
+    ],
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "rating": 8.6,
+    "totalRatings": 754,
+    "coverImage": "https://uauposters.com.br/media/catalog/product/1/5/158320140604-uau-posters-filmes-cidade-de-deus--city-of-god-3.jpg",
+    "createdAt": "2024-05-04T16:38:07.521Z"
+  },
+  {
+    "title": "Forrest Gump",
+    "releaseYear": 1994,
+    "director": [
+      "Robert Zemeckis"
+    ],
+    "cast": [
+      {
+        "actor": "Tom Hanks",
+        "character": "Forrest Gump"
+      },
+      {
+        "actor": "Robin Wright",
+        "character": "Jenny Curran"
+      },
+      {
+        "actor": "Gary Sinise",
+        "character": "Lieutenant Dan Taylor"
+      }
+    ],
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "rating": 8.8,
+    "totalRatings": 653,
+    "coverImage": "https://wallpapers.com/images/featured/forrest-gump-t7fimpldrjxqk3ns.jpg",
+    "createdAt": "2024-05-04T16:38:07.521Z"
+  },
+  {
+    "title": "Sicario",
+    "releaseYear": 2015,
+    "director": [
+      "Denis Villeneuve"
+    ],
+    "cast": [
+      {
+        "actor": "Emily Blunt",
+        "character": "Kate Macer"
+      },
+      {
+        "actor": "Benicio del Toro",
+        "character": "Alejandro Gillick"
+      },
+      {
+        "actor": "Josh Brolin",
+        "character": "Matt Graver"
+      }
+    ],
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "rating": 7.6,
+    "totalRatings": 978,
+    "coverImage": "https://c4.wallpaperflare.com/wallpaper/759/950/484/movie-sicario-wallpaper-preview.jpg",
+    "createdAt": "2024-05-04T16:38:07.521Z"
+  },
+  {
+    "title": "Gone Girl",
+    "releaseYear": 2014,
+    "director": [
+      "David Fincher"
+    ],
+    "cast": [
+      {
+        "actor": "Ben Affleck",
+        "character": "Nick Dunne"
+      },
+      {
+        "actor": "Rosamund Pike",
+        "character": "Amy Elliott Dunne"
+      },
+      {
+        "actor": "Neil Patrick Harris",
+        "character": "Desi Collings"
+      }
+    ],
+    "genres": [
+      "Drama",
+      "Mystery",
+      "Thriller"
+    ],
+    "rating": 8.1,
+    "totalRatings": 743,
+    "coverImage": "https://m.media-amazon.com/images/I/61cdYGoHFrL._AC_UF894,1000_QL80_.jpg",
+    "createdAt": "2024-05-04T16:38:07.521Z"
+  },
+  {
+    "title": "Once Upon a Time In Hollywood",
+    "releaseYear": 2019,
+    "director": [
+      "Quentin Tarantino"
+    ],
+    "cast": [
+      {
+        "actor": "Leonardo DiCaprio",
+        "character": "Rick Dalton"
+      },
+      {
+        "actor": "Brad Pitt",
+        "character": "Cliff Booth"
+      },
+      {
+        "actor": "Margot Robbie",
+        "character": "Sharon Tate"
+      }
+    ],
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "rating": 7.7,
+    "totalRatings": 856,
+    "coverImage": "https://deadline.com/wp-content/uploads/2019/03/once-upon-a-time-in-hollywood.jpg",
+    "createdAt": "2024-05-04T16:38:07.521Z"
+  },
+  {
+    "title": "Pulp Fiction",
+    "releaseYear": 1994,
+    "director": [
+      "Quentin Tarantino"
+    ],
+    "cast": [
+      {
+        "actor": "John Travolta",
+        "character": "Vincent Vega"
+      },
+      {
+        "actor": "Uma Thurman",
+        "character": "Mia Wallace"
+      },
+      {
+        "actor": "Samuel L. Jackson",
+        "character": "Jules Winnfield"
+      }
+    ],
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "rating": 8.9,
+    "totalRatings": 982,
+    "coverImage": "https://m.media-amazon.com/images/I/71rpGtseYcL._UF1000,1000_QL80_DpWeblab_.jpg",
+    "createdAt": "2024-05-04T16:38:07.521Z"
+  },
+  {
+    "title": "Into the Wild",
+    "releaseYear": 2007,
+    "director": [
+      "Sean Penn"
+    ],
+    "cast": [
+      {
+        "actor": "Emile Hirsch",
+        "character": "Christopher McCandless"
+      },
+      {
+        "actor": "Marcia Gay Harden",
+        "character": "Billie McCandless"
+      },
+      {
+        "actor": "William Hurt",
+        "character": "Walt McCandless"
+      }
+    ],
+    "genres": [
+      "Adventure",
+      "Biography",
+      "Drama"
+    ],
+    "rating": 8.1,
+    "totalRatings": 652,
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BNjQ0ODlhMWUtNmUwMS00YjExLWI4MjQtNjVmMmE2Y2E0MGRmXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg",
+    "createdAt": "2024-05-04T16:38:07.521Z"
+  },
+  {
+    "title": "Shutter Island",
+    "releaseYear": 2010,
+    "director": [
+      "Martin Scorsese"
+    ],
+    "cast": [
+      {
+        "actor": "Leonardo DiCaprio",
+        "character": "Teddy Daniels"
+      },
+      {
+        "actor": "Mark Ruffalo",
+        "character": "Chuck Aule"
+      },
+      {
+        "actor": "Ben Kingsley",
+        "character": "Dr. John Cawley"
+      }
+    ],
+    "genres": [
+      "Mystery",
+      "Thriller"
+    ],
+    "rating": 8.2,
+    "totalRatings": 1098,
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BYzhiNDkyNzktNTZmYS00ZTBkLTk2MDAtM2U0YjU1MzgxZjgzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+    "createdAt": "2024-05-05T13:08:31.426Z"
+  },
+  {
+    "title": "The Shawshank Redemption",
+    "releaseYear": 1994,
+    "director": [
+      "Frank Darabont"
+    ],
+    "cast": [
+      {
+        "actor": "Tim Robbins",
+        "character": "Andy Dufresne"
+      },
+      {
+        "actor": "Morgan Freeman",
+        "character": "Ellis Boyd 'Red' Redding"
+      }
+    ],
+    "genres": [
+      "Drama"
+    ],
+    "rating": 9.3,
+    "totalRatings": 900,
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+    "createdAt": "2024-05-11T12:54:40.302Z"
+  },
+  {
+    "title": "Leon: The Professional",
+    "releaseYear": 1994,
+    "director": [
+      "Luc Besson"
+    ],
+    "cast": [
+      {
+        "actor": "Jean Reno",
+        "character": "Léon"
+      },
+      {
+        "actor": "Natalie Portman",
+        "character": "Mathilda"
+      },
+      {
+        "actor": "Gary Oldman",
+        "character": "Stansfield"
+      }
+    ],
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "rating": 8.5,
+    "totalRatings": 350,
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BMzkzMmU0YTYtOWM3My00YzBkLWI0YjktNjcwZmE1M2U3MDliXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg",
+    "createdAt": "2024-05-11T12:54:40.302Z"
+  },
+  {
+    "title": "The Revenant",
+    "releaseYear": 2015,
+    "director": [
+      "Alejandro González Iñárritu"
+    ],
+    "cast": [
+      {
+        "actor": "Leonardo DiCaprio",
+        "character": "Hugh Glass"
+      },
+      {
+        "actor": "Tom Hardy",
+        "character": "John Fitzgerald"
+      },
+      {
+        "actor": "Domhnall Gleeson",
+        "character": "Andrew Henry"
+      }
+    ],
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Thriller"
+    ],
+    "rating": 8,
+    "totalRatings": 620,
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTgwMDk2MjU4NDE@._V1_.jpg",
+    "createdAt": "2024-05-11T12:54:40.302Z"
+  },
+  {
+    "title": "Spotlight",
+    "releaseYear": 2015,
+    "director": [
+      "Tom McCarthy"
+    ],
+    "cast": [
+      {
+        "actor": "Mark Ruffalo",
+        "character": "Mike Rezendes"
+      },
+      {
+        "actor": "Michael Keaton",
+        "character": "Walter 'Robby' Robinson"
+      },
+      {
+        "actor": "Rachel McAdams",
+        "character": "Sacha Pfeiffer"
+      }
+    ],
+    "genres": [
+      "Biography",
+      "Crime",
+      "Drama"
+    ],
+    "rating": 8.1,
+    "totalRatings": 400,
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BMjIyOTM5OTIzNV5BMl5BanBnXkFtZTgwNjIyMDY2NjE@._V1_.jpg",
+    "createdAt": "2024-05-11T12:54:40.302Z"
+  },
+  {
+    "title": "The Hateful Eight",
+    "releaseYear": 2015,
+    "director": [
+      "Quentin Tarantino"
+    ],
+    "cast": [
+      {
+        "actor": "Samuel L. Jackson",
+        "character": "Major Marquis Warren"
+      },
+      {
+        "actor": "Kurt Russell",
+        "character": "John Ruth"
+      },
+      {
+        "actor": "Jennifer Jason Leigh",
+        "character": "Daisy Domergue"
+      }
+    ],
+    "genres": [
+      "Crime",
+      "Drama",
+      "Mystery"
+    ],
+    "rating": 7.8,
+    "totalRatings": 480,
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BMjE1NzkxOTc2NV5BMl5BanBnXkFtZTgwMTMzMDE0NjE@._V1_.jpg",
+    "createdAt": "2024-05-11T12:54:40.302Z"
+  },
+  {
+    "title": "Black Swan",
+    "releaseYear": 2010,
+    "director": [
+      "Darren Aronofsky"
+    ],
+    "cast": [
+      {
+        "actor": "Natalie Portman",
+        "character": "Nina Sayers"
+      },
+      {
+        "actor": "Mila Kunis",
+        "character": "Lily"
+      },
+      {
+        "actor": "Vincent Cassel",
+        "character": "Thomas Leroy"
+      }
+    ],
+    "genres": [
+      "Drama",
+      "Thriller"
+    ],
+    "rating": 8,
+    "totalRatings": 550,
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwODg1NDQ4Mw@@._V1_.jpg",
+    "createdAt": "2024-05-11T12:54:40.302Z"
+  },
+  {
+    "title": "Inception",
+    "releaseYear": 2010,
+    "director": [
+      "Christopher Nolan"
+    ],
+    "cast": [
+      {
+        "actor": "Leonardo DiCaprio",
+        "character": "Cobb"
+      },
+      {
+        "actor": "Joseph Gordon-Levitt",
+        "character": "Arthur"
+      },
+      {
+        "actor": "Ellen Page",
+        "character": "Ariadne"
+      }
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "rating": 8.8,
+    "totalRatings": 820,
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
+    "createdAt": "2024-05-11T12:54:40.302Z"
+  },
+  {
+    "title": "The Social Network",
+    "releaseYear": 2010,
+    "director": [
+      "David Fincher"
+    ],
+    "cast": [
+      {
+        "actor": "Jesse Eisenberg",
+        "character": "Mark Zuckerberg"
+      },
+      {
+        "actor": "Andrew Garfield",
+        "character": "Eduardo Saverin"
+      },
+      {
+        "actor": "Justin Timberlake",
+        "character": "Sean Parker"
+      }
+    ],
+    "genres": [
+      "Biography",
+      "Drama"
+    ],
+    "rating": 7.7,
+    "totalRatings": 670,
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BOGUyZDU0ZjEtMmIzMC00MzlmLTg4MGItZWJmMzBhZjE0Mjc1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+    "createdAt": "2024-05-11T12:54:40.302Z"
+  }
+]
