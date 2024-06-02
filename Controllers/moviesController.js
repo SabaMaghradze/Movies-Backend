@@ -10,10 +10,6 @@ const testApi = asyncErrorHandler(async (req, res) => {
 const postMovie = asyncErrorHandler(async (req, res) => {
     const movie = await Movie.create(req.body);
 
-    if (movie.cast.length == 0) {
-        return new CustomError(`Must provide cast`, 402);
-    }
-
     res.status(201).json({
         status: 'success',
         data: {

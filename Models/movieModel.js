@@ -73,10 +73,10 @@ movieSchema.post('save', function (doc, next) {
     next();
 })
 
-movieSchema.pre(/^find/, function (next) {
-    this.find({releaseYear: {$lte: 2024}});
-    next();
-})
+// movieSchema.pre(/^find/, function (next) {
+//     this.find({releaseYear: {$lte: 2024}});
+//     next();
+// })
 
 const Movie = mongoose.model('Movie', movieSchema, 'moviesCol');
 

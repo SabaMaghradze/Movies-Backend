@@ -6,12 +6,11 @@ const app = require('./app');
 const connectToDatabase = require('./dbConnection');
 
 const port = process.env.PORT;
-const Movie = require('./Models/movieModel');
 
 const startServer = async () => {
     try {
         await connectToDatabase(process.env.MONGOURI);
-        const server = app.listen(port, () => {
+        app.listen(port, () => {
             console.log(`Server listening on port ${port}`);
         });
     } catch (error) {
@@ -30,7 +29,3 @@ process.on('unhandledRejection', (error) => {
         process.exit(1);
     });
 })
-
-
-
-
