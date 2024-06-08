@@ -13,10 +13,12 @@ const {
     getMoviesByGenre
 } = require('../Controllers/moviesController');
 
+const {protect} = require('../Controllers/authController');
+
 router
     .get('/highest-rated', getHighestRated, getAllMovies)
     .get('/testapi', testApi)
-    .get('/', getAllMovies)
+    .get('/', protect, getAllMovies)
     .get('/movie-stats', getMovieStats)
     .get('/movies-by-genre/:genre', getMoviesByGenre)
     .post('/', postMovie)

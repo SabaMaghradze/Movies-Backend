@@ -18,11 +18,14 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, "Please enter password"],
-        minlength: 8
+        minlength: 8,
+        select: false // excludes this field from response body. if we getAllUsers, passowrds will not be shown
     },
+    passwordChangedAt: Date,
     confirmPassword: {
         type: String,
         required: [true, "Please confirm your password"],
+        select: false,
         validate: {
             // only works for save() and create() methods. findOneAndUpdate would not work.
             validator: function(value) {
@@ -40,6 +43,18 @@ userSchema.pre('save', async function(next) {
     this.confirmPassword = undefined;
     next();
 })
+
+userSchema.methods.comparePasswords = async function(password, passwordInDB) {
+    return await bcrypt.compare(password, passwordInDB);
+}
+
+userSchema.methods.changedPassword = async function(JWTTimestamp) {
+    if (this.passwordChangedAt) {
+        const timestampActual = parseInt(this.passwordChangedAt.getTime() / 1000, 10);
+        return await JWTTimestamp < timestampActual;
+    }
+    return false;
+}
 
 const User = mongoose.model('user', userSchema, 'users');
 

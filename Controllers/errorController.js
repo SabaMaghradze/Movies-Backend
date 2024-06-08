@@ -33,13 +33,17 @@ const handleDuplicateKeys = (err) => {
     return new CustomError(msg, 400);
 }
 
+const tokenExpirationError = (err) => {
+    return new CustomError(`JWT has expired, please log in again`, 401);
+}
+
 const globalErrorHandler = (error, req, res, next) => {
     error.statusCode = error.statusCode || 500;
     error.status = error.status || 'error';
 
     if (error.name == 'CastError')  error = handleInvalidID(error);
-
     if (error.code == 11000) error = handleDuplicateKeys(error);
+    if (error.name == "TokenExpiredError") error = tokenExpirationError(error);
 
 
     if (process.env.NODE_ENVIRONMENT == 'development') {
