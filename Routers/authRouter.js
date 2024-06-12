@@ -2,11 +2,12 @@ const express = require('express');
 
 const router = express.Router();
 
-const {getAllUsers, signUp, logIn} = require('../Controllers/authController');
+const {getAllUsers, signUp, logIn, forgotPassword, resetPassword} = require('../Controllers/authController');
 
 router
-    .get('/', getAllUsers)
     .post('/signup', signUp)
     .post('/login', logIn)
+    .post('/forgotPassword', forgotPassword)
+    .patch('/resetPassword/:token', resetPassword)
 
 module.exports = router;

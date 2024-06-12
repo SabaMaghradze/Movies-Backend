@@ -4,3 +4,4 @@ node_modules/
 # Ignore text files in all subfolders
 **/*.txt
 config.env
+tests.js

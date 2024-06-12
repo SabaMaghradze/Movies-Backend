@@ -4,24 +4,13 @@ const ApiUtils = require('../Utils/ApiFeatures');
 const jwt = require('jsonwebtoken');
 const CustomError = require('../Utils/CustomError');
 const util = require('util');
+const sendMail = require('../Utils/email');
 
 function signToken(id) {
     return jwt.sign({id}, process.env.SECRET_STRING, {
         expiresIn: process.env.LOGIN_EXPIRES
     })
 }
-
-const getAllUsers = asyncErrorHandler(async (req, res) => {
-
-    const features = new ApiUtils(User.find(), req.query).filter().sort().limitFields().paginate();
-    const users = await features.queryObj;
-
-    res.status(200).json({
-        status: 'success',
-        length: users.length,
-        users: users
-    });
-})
 
 const signUp = asyncErrorHandler(async (req, res, next) => {
 
@@ -66,6 +55,7 @@ const logIn = asyncErrorHandler(async (req, res, next) => {
 })
 
 const protect = asyncErrorHandler(async (req, res, next) => {
+
     let testToken = req.headers.authorization;
     let token;
 
@@ -90,12 +80,65 @@ const protect = asyncErrorHandler(async (req, res, next) => {
         const error = new CustomError(`The password has been changed recently, please re-log in`, 401);
         return next(error);
     }
+
     req.user = user;
 
     next();
+});
+
+const restrict = (role) => {
+    return (req, res, next) => {
+        if (req.user.role !== 'admin') {
+            const error = new CustomError(`You are not authorized to perform this action`, 403);
+            next(error);
+        }
+        next();
+    }
+}
+
+const forgotPassword = asyncErrorHandler(async (req, res, next) => {
+
+    const {email} = req.body;
+    const user = await User.findOne({email: email});
+
+    if (!user) {
+        const error = new CustomError(`We couldn't find user with the given email`, 404);
+        next(error);
+    }
+
+    const resetToken = await user.generateResetToken();
+    
+    await user.save({validateBeforeSave: false});
+
+    const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`;
+    const message = `We have received a password reset request, please use the link below to reset the password\n\n${resetUrl}\n\n`;
+
+    try {
+        await sendMail({
+            email: user.email,
+            subject: 'Password change request received',
+            message: message
+        });
+        res.status(200).json({
+            status: "success",
+            message: "email sent successfully"
+        })
+    } catch (err) {
+        user.passwordResetToken = undefined;
+        user.passwordResetTokenExpires = undefined;
+        user.save({validateBeforeSave: false})
+        console.log(err)
+
+        return next(new CustomError(`There was an error sending password reset email to user`, 500));
+    }
+
 })
 
-module.exports = {getAllUsers, signUp, logIn, protect};
+const resetPassword = () => {
+
+}
+
+module.exports = {signUp, logIn, protect, restrict, forgotPassword, resetPassword};
 
 
 

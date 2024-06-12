@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -14,12 +15,17 @@ const userSchema = new mongoose.Schema({
         unique: true,
         validate: [validator.isEmail, "Please enter a valid email address."]
     },
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user'
+    },
     photo: String,
     password: {
         type: String,
         required: [true, "Please enter password"],
         minlength: 8,
-        select: false // excludes this field from response body. if we getAllUsers, passowrds will not be shown
+        select: false // excludes this field from response body. if we getAllUsers, passwords will not be shown
     },
     passwordChangedAt: Date,
     confirmPassword: {
@@ -27,14 +33,15 @@ const userSchema = new mongoose.Schema({
         required: [true, "Please confirm your password"],
         select: false,
         validate: {
-            // only works for save() and create() methods. findOneAndUpdate would not work.
+            // only works for save() and create() methods. Wouldn't work for, say findOneAndUpdate.
             validator: function(value) {
-                return value == this.password; // checks whether password and confirmpassword values
-                // coincide.
+                return value == this.password;
             },
             message: "Can't confirm password"
         }
-    }
+    },
+    passwordResetToken: String,
+    passwordResetTokenExpires: Date
 });
 
 userSchema.pre('save', async function(next) {
@@ -54,6 +61,14 @@ userSchema.methods.changedPassword = async function(JWTTimestamp) {
         return await JWTTimestamp < timestampActual;
     }
     return false;
+}
+
+userSchema.methods.generateResetToken = async function() {
+    const resetToken = crypto.randomBytes(32).toString('hex');
+    this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+    this.passwordResetTokenExpires = Date.now() + 10 * 60 * 1000;
+
+    return resetToken;
 }
 
 const User = mongoose.model('user', userSchema, 'users');

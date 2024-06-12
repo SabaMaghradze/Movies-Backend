@@ -13,7 +13,7 @@ const {
     getMoviesByGenre
 } = require('../Controllers/moviesController');
 
-const {protect} = require('../Controllers/authController');
+const {protect, restrict} = require('../Controllers/authController');
 
 router
     .get('/highest-rated', getHighestRated, getAllMovies)
@@ -24,6 +24,6 @@ router
     .post('/', postMovie)
     .get('/:id', getMovieById)
     .patch('/:id', updateMovie)
-    .delete('/:id', deleteMovie)
+    .delete('/:id', protect, restrict('admin'), deleteMovie)
 
 module.exports = router;    
