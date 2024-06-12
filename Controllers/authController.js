@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const CustomError = require('../Utils/CustomError');
 const util = require('util');
 const sendMail = require('../Utils/email');
+const crypto = require('crypto');
 
 function signToken(id) {
     return jwt.sign({id}, process.env.SECRET_STRING, {
@@ -107,7 +108,7 @@ const forgotPassword = asyncErrorHandler(async (req, res, next) => {
     }
 
     const resetToken = await user.generateResetToken();
-    
+
     await user.save({validateBeforeSave: false});
 
     const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`;
@@ -134,9 +135,33 @@ const forgotPassword = asyncErrorHandler(async (req, res, next) => {
 
 })
 
-const resetPassword = () => {
+const resetPassword = asyncErrorHandler(async (req, res, next) => {
+    const token = crypto.createHash('sha256').update(req.params.token).digest('hex');
 
-}
+    const user = await User.findOne({passwordResetToken: token, passwordResetTokenExpires: {$gt: Date.now()}});
+
+    if (!user) {
+        const error = new CustomError(`Token is invalid or has expired`, 400);
+        next(error);
+    }
+
+    user.password = req.body.password;
+    user.confirmPassword = req.body.confirmPassword;
+
+    user.passwordResetToken = undefined;
+    user.passwordResetTokenExpires = undefined;
+
+    user.passwordChangedAt = Date.now();
+
+    user.save();
+
+    // re-log in the user.
+    const loginToken = signToken(user._id);
+    res.status(200).json({
+        status: 'success',
+        token: loginToken
+    });
+});
 
 module.exports = {signUp, logIn, protect, restrict, forgotPassword, resetPassword};
 
