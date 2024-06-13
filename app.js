@@ -24,7 +24,10 @@ const moviesRouter = require('./Routers/moviesRouter');
 app.use('/api/v1/movies', moviesRouter);
 
 const authRouter = require('./Routers/authRouter');
-app.use('/api/v1/users', authRouter);
+app.use('/api/v1/auth', authRouter);
+
+const userRouter = require('./Routers/userRouter');
+app.use('/api/v1/user', userRouter);
 
 app.all('*', (req, res, next) => {
     const err = new CustomError(`Can't find ${req.originalUrl} on the server`, 404);

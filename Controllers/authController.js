@@ -163,7 +163,7 @@ const resetPassword = asyncErrorHandler(async (req, res, next) => {
     });
 });
 
-module.exports = {signUp, logIn, protect, restrict, forgotPassword, resetPassword};
+module.exports = {signUp, logIn, protect, restrict, forgotPassword, resetPassword, signToken};
 
 
 

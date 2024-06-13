@@ -27,6 +27,11 @@ const userSchema = new mongoose.Schema({
         minlength: 8,
         select: false // excludes this field from response body. if we getAllUsers, passwords will not be shown
     },
+    active: {
+        type: Boolean,
+        default: true,
+        select: false
+    },
     passwordChangedAt: Date,
     confirmPassword: {
         type: String,
