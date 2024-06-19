@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const CustomError = require('./Utils/CustomError');
 const globalErrorHandler = require('./Controllers/errorController');
+const rateLimiter = require('express-rate-limit');
+const sanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
+const xss = require('xss-clean');
 
 const morgan = require('morgan');
 
@@ -9,9 +13,21 @@ const logger = function (req, res, next) {
     console.log('Custom middleware called');
     next();
 }
-app.use(express.static('public'));
-app.use(express.json());
+
+const limit = rateLimiter({
+    max: 1000,
+    windowMs: 60 * 60 * 1000,
+    message: 'We have received too many requests from that IP address, please try again after 1 hour.'
+})
+
+app.use(helmet());
+app.use('/api', limit);
+app.use(express.json({limit: '10kb'}));
+app.use(sanitize());
+app.use(xss());
 app.use(logger);
+
+app.use(express.static('public'));
 
 if (process.env.NODE_ENVIRONMENT == 'development') {
     app.use(morgan('dev'));

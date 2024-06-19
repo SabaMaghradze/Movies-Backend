@@ -22,10 +22,10 @@ const startServer = async () => {
 
 startServer();
 
-process.on('unhandledRejection', (error) => {
-    console.log(err.message);
-    console.log("Unhandled rejection occurred, shutting down...");
-    server.close(() => {
-        process.exit(1);
-    });
-})
+// process.on('unhandledRejection', (error) => {
+//     console.log(error.message);
+//     console.log("Unhandled rejection occurred, shutting down...");
+//     app.close(() => {
+//         process.exit(1);
+//     });
+// })

@@ -18,12 +18,12 @@ const {protect, restrict} = require('../Controllers/authController');
 router
     .get('/highest-rated', getHighestRated, getAllMovies)
     .get('/testapi', testApi)
-    .get('/', protect, getAllMovies)
+    .get('/', getAllMovies)
     .get('/movie-stats', getMovieStats)
     .get('/movies-by-genre/:genre', getMoviesByGenre)
-    .post('/', postMovie)
+    .post('/', protect, restrict(), postMovie)
     .get('/:id', getMovieById)
-    .patch('/:id', updateMovie)
-    .delete('/:id', protect, restrict('admin'), deleteMovie)
+    .patch('/:id', protect, restrict(), updateMovie)
+    .delete('/:id', protect, restrict(), deleteMovie)
 
 module.exports = router;    

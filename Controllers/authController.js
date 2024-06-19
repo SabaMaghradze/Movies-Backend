@@ -1,6 +1,5 @@
 const User = require('../Models/userModel');
 const asyncErrorHandler = require('../Utils/asyncErrorHandler');
-const ApiUtils = require('../Utils/ApiFeatures');
 const jwt = require('jsonwebtoken');
 const CustomError = require('../Utils/CustomError');
 const util = require('util');
@@ -13,19 +12,37 @@ function signToken(id) {
     })
 }
 
+function sendResponse(user, statusCode, res) {
+    const token = signToken(user._id);
+
+    const options = {
+        maxAge: process.env.LOGIN_EXPIRES,
+        httpOnly: true
+    }
+
+    if (process.env.NODE_ENVIRONMENT == 'production') {
+        options.secure = true;
+    }
+
+    res.cookie('jwt', token, options);
+
+    user.password = undefined; // so that password is not visible in the response body, note that
+    // we are not saving the user so the password will be intact in the database(not undefined).
+
+    res.status(statusCode).json({
+        status: 'success',
+        token,
+        data: {
+            user
+        }
+     })
+}
+
 const signUp = asyncErrorHandler(async (req, res, next) => {
 
     const newUser = await User.create(req.body);
 
-    const token = signToken(newUser._id);
-
-    res.status(201).json({
-        status: 'success',
-        token: token,
-        data: {
-            user: newUser
-        }
-    })
+    sendResponse(newUser, 201, res);
 })
 
 const logIn = asyncErrorHandler(async (req, res, next) => {
@@ -46,13 +63,7 @@ const logIn = asyncErrorHandler(async (req, res, next) => {
         return next(error);
     }
 
-    const token = signToken(user._id);
-
-    res.status(200).json({
-        status: 'success',
-        token,
-        user
-    })
+    sendResponse(user, 200, res);
 })
 
 const protect = asyncErrorHandler(async (req, res, next) => {
@@ -87,7 +98,7 @@ const protect = asyncErrorHandler(async (req, res, next) => {
     next();
 });
 
-const restrict = (role) => {
+const restrict = () => {
     return (req, res, next) => {
         if (req.user.role !== 'admin') {
             const error = new CustomError(`You are not authorized to perform this action`, 403);
@@ -156,14 +167,10 @@ const resetPassword = asyncErrorHandler(async (req, res, next) => {
     user.save();
 
     // re-log in the user.
-    const loginToken = signToken(user._id);
-    res.status(200).json({
-        status: 'success',
-        token: loginToken
-    });
+    sendResponse(user._id, 200, res);
 });
 
-module.exports = {signUp, logIn, protect, restrict, forgotPassword, resetPassword, signToken};
+module.exports = {signUp, logIn, protect, restrict, forgotPassword, resetPassword, signToken, sendResponse};
 
 
 

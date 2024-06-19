@@ -1,7 +1,7 @@
 const User = require('../Models/userModel');
 const asyncErrorHandler = require("../Utils/asyncErrorHandler");
 const CustomError = require("../Utils/CustomError");
-const {signToken} = require('./authController');
+const {signToken, sendResponse} = require('./authController');
 
 function filterReqBody(obj, ...permittedFields) {
     let result = {};
@@ -24,39 +24,26 @@ const updatePassword = asyncErrorHandler(async (req, res, next) => {
 
     await user.save();
 
-    const token = signToken(user._id);
-
-    res.status(200).json({
-        status: 'success',
-        token,
-        data: {
-            user
-        }
-    })
+    sendResponse(user, 200, res);
 });
 
 const updateMe = asyncErrorHandler(async (req, res, next) => {
    if (req.body.password || req.body.confirmPassword) {
        return next(new CustomError(`You cannot update your password using this endpoint`, 400));
    }
+   if (req.body.role) {
+       return next(new CustomError(`You cannot amend your role`, 401));
+   }
    const filteredReqBody = filterReqBody(req.body, 'name', 'email');
-   const user = await User.findByIdAndUpdate(req.user._id, filteredReqBody, {runValidators: true, new: true});
+   const user = await User.findByIdAndUpdate(req.user.id, filteredReqBody, {runValidators: true, new: true});
    // Where does the user come from? protect middleware which is run before this middleware.
-    res.status(200).json({
-        status: 'success',
-        user: {
-            user
-        }
-    })
+    sendResponse(user, 200, res);
 });
 
 const deleteMe = asyncErrorHandler(async (req, res) => {
-    await User.findByIdAndUpdate(req.user._id, {active: false});
+    const user = await User.findByIdAndUpdate(req.user.id, {active: false});
 
-    res.status(204).json({
-        status: 'success',
-        data: null
-    })
+    sendResponse(user, 204, res)
 })
 
 module.exports = {updatePassword, updateMe, deleteMe};
