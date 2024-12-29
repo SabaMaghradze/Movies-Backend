@@ -3,6 +3,5 @@ node_modules/
 
 # Ignore text files in all subfolders
 **/*.txt
-.env
+*.env
 tests.js
-**/*.js
